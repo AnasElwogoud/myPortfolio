@@ -85,6 +85,27 @@ aside .logo a::after {
     left: 0;
 }
 
+aside {
+    background-color: var(--bg-black-100);
+    min-height: 100vh;
+    padding: 30px;
+    border-right: 1px solid var(--bg-black-50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+aside nav {
+    position: absolute !important;
+    top: 0;
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    -o-transform: translateY(100%);
+}
+
 nav li a {
     font-size: 16px;
     font-weight: 600;
@@ -105,39 +126,17 @@ nav li a i {
 }
 
 section.hidden {
-    /* opacity: 0;
-    filter: blur(5px);
-    -webkit-filter: blur(5px);
-    transition: all 1s ease;
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    transform: translateX(-100%);
-    -webkit-transform: translateX(-100%);
-    -moz-transform: translateX(-100%);
-    -ms-transform: translateX(-100%);
-    -o-transform: translateX(-100%); */
     display: none;
 }
 
 section.active {
     opacity: 1;
     display: block;
-    /*filter: blur(0px);
-    -webkit-filter: blur(0px);
-    transform: translateX(0);
-    -webkit-transform: translateX(0);
-    -moz-transform: translateX(0);
-    -ms-transform: translateX(0);
-    -o-transform: translateX(0);
-    */
     animation: slideSection .5s ease;
     -webkit-animation: slideSection 1s ease;
 }
 
 @media (max-width: 1200px) {
-
     @keyframes slideSection {
         0% {
             opacity: 0;
@@ -165,7 +164,6 @@ section.active {
 }
 
 @media (max-width: 576px) {
-
     @keyframes slideSection {
         0% {
             opacity: 0;
@@ -189,22 +187,11 @@ section.active {
             -o-transform: translateX(0);
         }
     }
-
 }
 
-aside {
-    background-color: var(--bg-black-100);
-    min-height: 100vh;
-    padding: 30px;
-    border-right: 1px solid var(--bg-black-50);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-/* home section  */
+/* Start home section  */
 .main-content {
-
     background-color: var(--bg-black-900);
 }
 
@@ -303,7 +290,6 @@ aside {
 /* Home section End */
 
 /* About section start  */
-
 .section-title h2 {
     font-size: 40px;
     color: var(--text-black-900);
@@ -544,7 +530,6 @@ svg {
 }
 
 /* Start Services Section  */
-
 .service-item .service-item-inner {
     background-color: var(--bg-black-100);
     border: 1px solid var(--bg-black-50);
@@ -617,6 +602,11 @@ svg {
     font-weight: 500;
 }
 
+.portfolio .portfolio-heading h3 {
+    color: var(--text-black-700);
+    font-weight: 400;
+}
+
 .portfolio .portfolio-item-inner {
     border: 6px solid var(--bg-black-100);
     border-radius: 10px;
@@ -624,7 +614,6 @@ svg {
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-    /* overflow: hidden; */
     cursor: pointer;
 }
 
@@ -634,8 +623,8 @@ svg {
 }
 
 /* End Protfolio Section  */
-/* Start Contact Section  */
 
+/* Start Contact Section  */
 .contact-title {
     color: var(--skin-color);
     text-align: center;
@@ -701,20 +690,4 @@ svg {
     box-shadow: 0 0 20px var(--text-black-700);
 }
 
-
 /* End Contact Section  */
-
-.anas {
-    position: relative;
-}
-
-.anas nav {
-    position: absolute;
-    top: 0;
-    left: 20%;
-    transform: translateY(100%);
-    -webkit-transform: translateY(100%);
-    -moz-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    -o-transform: translateY(100%);
-}
