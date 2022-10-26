@@ -41,7 +41,6 @@ a {
     box-shadow: 0 0 20px rgba(48, 46, 77, .15);
 }
 
-
 aside .logo {
     position: absolute;
     top: 50px;
@@ -136,7 +135,7 @@ section.active {
     -webkit-animation: slideSection 1s ease;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 2000px) {
     @keyframes slideSection {
         0% {
             opacity: 0;
@@ -188,7 +187,6 @@ section.active {
         }
     }
 }
-
 
 /* Start home section  */
 .main-content {
@@ -356,7 +354,6 @@ section.active {
     color: greenyellow;
     text-shadow: 1px 1px 2px black;
     font-weight: 700;
-
 }
 
 .about-content .personal-info .buttons {
@@ -369,87 +366,141 @@ section.active {
     padding: 15px 30px;
 }
 
-.skills .progress {
-    width: 180px;
-    height: 180px;
+.cards {
     position: relative;
     background-color: transparent;
+    border: none;
 }
 
-.skills .progress .outer {
-    height: 160px;
-    width: 160px;
-    padding: 20px;
-    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, .15), -6px -6px 10px -1px rgba(255, 255, 255, .1);
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-}
-
-.skills .progress .inner {
-    height: 120px;
-    width: 120px;
-    box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, .2),
-        inset -4px -4px 6px -1px rgba(255, 255, 255, .7),
-        -.5px -.5px 0px rgba(255, 255, 255, 1),
-        .5px .5px 0 rgba(0, 0, 0, .15), 0 12px 10px -10px rgba(0, 0, 0, .05);
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#number {
-    font-weight: 600;
-    color: #555;
-    font-size: 25px;
+.cards .percent {
     position: relative;
+    width: 150px;
+    height: 150px;
 }
 
-#number::before {
-    content: attr(type);
-    position: absolute;
-    top: -30px;
+.cards .percent svg {
+    position: relative;
+    height: 150px;
+    height: 150px;
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
 }
 
-#number[type="HTML"]::before {
-    position: absolute;
-    top: -30px;
-    left: -10px;
+.cards .percent svg circle {
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    stroke-width: 2;
+    stroke: #191919;
+    transform: translate(5px, 5px);
+    -webkit-transform: translate(5px, 5px);
+    -moz-transform: translate(5px, 5px);
+    -ms-transform: translate(5px, 5px);
+    -o-transform: translate(5px, 5px);
 }
 
-#number[type="Angular"]::before {
-    position: absolute;
-    top: -30px;
-    left: -20px;
-}
-
-circle {
-    fill: none;
+.cards .percent svg circle:nth-child(2) {
     stroke: var(--skin-color);
-    stroke-width: 20px;
-    stroke-dasharray: 450;
-    stroke-dashoffset: 450;
-    animation: anim 2s linear forwards;
-    -webkit-animation: anim 2s linear forwards;
+    stroke-dasharray: 440;
+    stroke-dashoffset: calc(440 - (440 * var(--num)) / 100);
+    opacity: 0;
+    animation: fadeIn 1s linear forwards;
+    -webkit-animation: fadeIn 1s linear forwards;
+    animation-delay: 1.4s;
 }
 
-@keyframes anim {
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
     100% {
-        stroke-dashoffset: 100;
+        opacity: 1;
     }
 }
 
-svg {
+.dot {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 5px;
+    z-index: 100;
+    animation: animateDot 1.5s linear forwards;
+    -webkit-animation: animateDot 1.5s linear forwards;
+}
+
+@keyframes animateDot {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(calc(3.6deg * var(--num)));
+        -webkit-transform: rotate(calc(3.6deg * var(--num)));
+        -moz-transform: rotate(calc(3.6deg * var(--num)));
+        -ms-transform: rotate(calc(3.6deg * var(--num)));
+        -o-transform: rotate(calc(3.6deg * var(--num)));
+    }
+}
+
+.dot::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: var(--skin-color);
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    box-shadow: 0 0 10px var(--skin-color),
+        0 0 30px var(--skin-color);
+}
+
+.number {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    animation: fadeIn 1s linear forwards;
+    -webkit-animation: fadeIn 1s linear forwards;
+    animation-delay: 1.4s;
+}
+
+.number p {
+    color: var(--text-black-900);
+    font-weight: 700;
+    position: relative;
+}
+
+.number p:last-child {
+    letter-spacing: 2px;
+    color: var(--text-black-700);
+    line-height: 4px;
+}
+
+.number p span {
+    font-weight: 300;
+    color: var(--text-black-700);
+    font-size: 0.5em;
+    position: absolute;
+    top: 25%;
 }
 
 .about .about-content h3.title {
