@@ -666,11 +666,54 @@ section.active {
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
     cursor: pointer;
+    overflow: hidden;
+    margin-bottom: 25px;
 }
+
+.portfolio .portfolio-item-inner .content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    transition: all .9s ease-in-out;
+    -webkit-transition: all .9s ease-in-out;
+    -moz-transition: all .9s ease-in-out;
+    -ms-transition: all .9s ease-in-out;
+    -o-transition: all .9s ease-in-out;
+    width: 100%;
+}
+
+.portfolio .portfolio-item-inner .content .text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.portfolio .portfolio-item-inner .content .text p:hover {
+    cursor: text;
+}
+
+.portfolio .portfolio-item-inner .portfolio-img:hover .content {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .6);
+}
+
+.portfolio .portfolio-item-inner .portfolio-img {
+    height: 355px;
+    position: relative;
+}
+
 
 .portfolio .portfolio-item-inner .portfolio-img img {
     width: 100%;
     display: block;
+    min-height: 100%;
 }
 
 /* End Protfolio Section  */
