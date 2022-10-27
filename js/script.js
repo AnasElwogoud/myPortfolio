@@ -1,18 +1,5 @@
-let progNumber = document.querySelectorAll("#number");
-let counter = 0;
-setInterval(() => {
-  for (let i = 0; i <= progNumber.length; i++) {
-    if (counter == 81) {
-      clearInterval;
-    } else {
-      counter += i;
-      progNumber[i].innerHTML = `${counter}%`;
-    }
-  }
-}, 180);
-
 let typed = new Typed(".typing", {
-  strings: ["Frontend Developer", "Web Designer", "Testo", "Web Developer"],
+  strings: ["FrontEnd Developer", "Angular Developer", "Web Developer"],
   typeSpeed: 100,
   BackSpeed: 60,
   loop: true,

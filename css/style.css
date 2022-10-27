@@ -5,6 +5,27 @@
     box-sizing: border-box;
     outline: none;
     text-decoration: none;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #333;
 }
 
 body.dark {
@@ -234,19 +255,12 @@ section.active {
     -moz-border-radius: 40px;
     -ms-border-radius: 40px;
     -o-border-radius: 40px;
-    display: inline-block;
-    white-space: nowrap;
-    transition: all .4s ease;
-    -webkit-transition: all .4s ease;
-    -moz-transition: all .4s ease;
-    -ms-transition: all .4s ease;
-    -o-transition: all .4s ease;
+    font-weight: bold;
 }
 
 .hire-me:hover {
     background-color: var(--skin-color) !important;
-    color: black;
-    font-weight: bold;
+    color: white !important;
 }
 
 .home-img {
@@ -358,6 +372,15 @@ section.active {
 
 .about-content .personal-info .buttons {
     margin-top: 30px;
+}
+
+a[href="#contact"] i {
+    font-size: 20px;
+    margin-left: 2px;
+}
+
+a[href="#contact"]:hover i {
+    text-shadow: 1px 1px 7px black;
 }
 
 .about-content .personal-info .buttons a {
@@ -750,38 +773,169 @@ section.active {
     margin: 15px 0 5px;
 }
 
-.contact .contact-item p {
-    font-size: 16px;
+.contact .contact-item a {
     line-height: 25px;
+    letter-spacing: 1px;
     color: var(--text-black-700);
     font-weight: 400;
 }
 
-.contact .contact-form input,
-.contact .contact-form textarea {
-    border-radius: 25px;
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    -ms-border-radius: 25px;
-    -o-border-radius: 25px;
-    background-color: var(--bg-black-100);
-    border: 1px solid var(--bg-black-50);
-    padding: 10px 25px;
-    font-size: 16px;
-    color: var(--text-black-700);
-    transition: all .3s ease;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
+.contact .contact-item a:hover {
+    color: var(--skin-color);
+    font-weight: 600;
 }
 
-.contact .contact-form label {
-    color: var(--text-black-700);
+.box {
+    position: relative;
+    width: 85%;
+    height: 540px;
+    background-color: #1c1c1c;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    overflow: hidden;
+
 }
 
-.contact .contact-form .form-control:focus {
-    box-shadow: 0 0 20px var(--text-black-700);
+.box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 85%;
+    height: 520px;
+    background: linear-gradient(0deg, transparent, var(--skin-color), var(--skin-color));
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    -webkit-animation: animate 6s linear infinite;
+}
+
+.box::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 85%;
+    height: 520px;
+    background: linear-gradient(0deg, transparent, var(--skin-color), var(--skin-color));
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    -webkit-animation: animate 6s linear infinite;
+    animation-delay: -3s;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+    }
+}
+
+.form {
+    position: absolute;
+    inset: 4px;
+    background: var(--bg-black-900);
+    z-index: 10;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    padding: 10px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputBox {
+    position: relative;
+}
+
+.inputBox input,
+.inputBox textarea {
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #23242a;
+    font-size: 1em;
+    letter-spacing: .05em;
+    z-index: 10;
+}
+
+.inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 20px 10px 10px;
+    font-size: 1em;
+    color: var(--text-black-700);
+    pointer-events: none;
+    letter-spacing: .05em;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+    font-weight: 600;
+}
+
+.inputBox input:valid~span,
+.inputBox input:focus~span,
+.inputBox textarea:valid~span,
+.inputBox textarea:focus~span {
+    color: var(--skin-color);
+    transform: translateX(-10px) translateY(-34px);
+    -webkit-transform: translateX(-10px) translateY(-34px);
+    -moz-transform: translateX(-10px) translateY(-34px);
+    -ms-transform: translateX(-10px) translateY(-34px);
+    -o-transform: translateX(-10px) translateY(-34px);
+    font-size: .8em;
+}
+
+.inputBox i {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--skin-color);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+    pointer-events: none;
+    z-index: 9;
+}
+
+.inputBox input:valid~i,
+.inputBox input:focus~i,
+.inputBox textarea:valid~i,
+.inputBox textarea:focus~i {
+    height: 87%;
+}
+
+.hire-me:active {
+    opacity: .8;
 }
 
 /* End Contact Section  */
